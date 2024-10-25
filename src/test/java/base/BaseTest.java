@@ -1,6 +1,5 @@
 package base;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -18,7 +17,7 @@ public class BaseTest {
     @BeforeClass
     public void setup()
     {
-        WebDriverManager.chromedriver().setup();
+
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
         driver.manage().window().maximize();
