@@ -17,12 +17,10 @@ public class BaseTest {
     @BeforeClass
     public void setup()
     {
-
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
-     //   gohome();
     }
     @BeforeMethod
     public void gohome()

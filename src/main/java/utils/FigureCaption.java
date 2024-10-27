@@ -22,4 +22,6 @@ public class FigureCaption {
     {
         return FigerCaption.findElement(link).getText();
     }
+
+
 }

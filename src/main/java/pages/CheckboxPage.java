@@ -2,18 +2,20 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.HandelMethods;
 
-public class CheckboxPage {
+public class CheckboxPage extends HandelMethods {
 
-    WebDriver driver;
     public CheckboxPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    private By checkbox1 = By.xpath("//*[@type='checkbox'][1]");
-    private By checkbox2 = By.xpath("//*[@type='checkbox'][2]");
+    private final By checkbox1 = By.xpath("//*[@type='checkbox'][1]");
+    private final By checkbox2 = By.xpath("//*[@type='checkbox'][2]");
 
     // Box1
+
+
     public Boolean box1isempty()
     {
         return driver.findElement(checkbox1).isSelected();
@@ -21,7 +23,7 @@ public class CheckboxPage {
 
     public boolean clickonBox1()
     {
-        driver.findElement(checkbox1).click();
+        click(checkbox1);
         return driver.findElement(checkbox1).isSelected();
     }
 
@@ -33,7 +35,7 @@ public class CheckboxPage {
 
     public boolean clickonBox2()
     {
-        driver.findElement(checkbox2).click();
+        click(checkbox2);
         return driver.findElement(checkbox2).isSelected();
     }
 

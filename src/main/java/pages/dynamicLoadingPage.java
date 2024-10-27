@@ -2,12 +2,13 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.HandelMethods;
 
-public class dynamicLoadingPage {
+public class dynamicLoadingPage extends HandelMethods {
 
-    WebDriver driver;
+
     public dynamicLoadingPage(WebDriver driver) {
-    this.driver = driver;
+    super(driver);
     }
 
     private final By exampleOne = By.linkText("Example 1: Element on page that is hidden");

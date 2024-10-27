@@ -2,23 +2,23 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.HandelMethods;
 
-public class Loginpage {
+public class Loginpage extends HandelMethods {
 
-    WebDriver driver;
     public Loginpage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    private By user_name_field = By.id("username");
-    private By password_field = By.id("password");
-    private By login_button = By.xpath("//*[@id=\"login\"]/button/i");
-    private By login_message = By.xpath("//*[@id=\"flash\"]");
+    private final By user_name_field = By.id("username");
+    private final By password_field = By.id("password");
+    private final By login_button = By.xpath("//*[@id=\"login\"]/button/i");
+    private final By login_message = By.xpath("//*[@id=\"flash\"]");
 
 
     public void write_username(String username)
     {
-        driver.findElement(user_name_field).sendKeys(username);
+        sendKeys(user_name_field,username);
     }
 
     public void write_password(String password)

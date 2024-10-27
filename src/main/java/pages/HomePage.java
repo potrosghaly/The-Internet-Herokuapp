@@ -2,18 +2,21 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.HandelMethods;
 
-public class HomePage {
-    WebDriver driver;
+public class HomePage extends HandelMethods {
+
     public HomePage(WebDriver driver)
-    {this.driver= driver;}
+    {
+        super(driver);
+    }
 
-    private By login_button = By.linkText("Form Authentication");
-    private By forgetPassowrd = By.linkText("Forgot Password");
-    private By statusCode = By.linkText("Status Codes");
-    private By chrckBox = By.linkText("Checkboxes");
+    private final By login_button = By.linkText("Form Authentication");
+    private final By forgetPassowrd = By.linkText("Forgot Password");
+    private final By statusCode = By.linkText("Status Codes");
+    private final By chrckBox = By.linkText("Checkboxes");
 
-    private By upload = By.linkText("File Upload");
+    private final By upload = By.linkText("File Upload");
     private final By dropDownLink = By.linkText("Dropdown");
     private final By dynamicLoadingLink = By.linkText("Dynamic Loading");
     private final By jsAlertLink = By.xpath("//*[contains(text(),'JavaScript Alerts')]");
@@ -22,66 +25,77 @@ public class HomePage {
 
 
 
+
+
+    public Loginpage clickon_login_button()
+    {
+        click(login_button);
+        return new Loginpage(driver);
+    }
+
+//    public Loginpage clickon_login_button()
+//    {
+//        click(login_button);
+//        return new Loginpage(driver);
+//    }
+
+
+
+
+
     public EntryAddPage clickEntryAddLink()
     {
-        clickon(entryAddLink);
+        click(entryAddLink);
         return new EntryAddPage(driver);
     }
 
-    private void clickon(By locator)
-    {
-        driver.findElement(locator).click();
-    }
+
 
     public JsAlertPage clickJsAlertLink()
     {
-        clickon(jsAlertLink);
+        click(jsAlertLink);
         return new JsAlertPage(driver);
     }
 
     public dynamicLoadingPage clickonDynamicLoadingPage()
     {
-        clickon(dynamicLoadingLink);
+        click(dynamicLoadingLink);
         return new dynamicLoadingPage(driver);
     }
-    public Loginpage clickon_login_button()
-    {
-        clickon(login_button);
-        return new Loginpage(driver);
-    }
+
     public ForgetPasswordPage clickon_forget_password()
     {
-        clickon(forgetPassowrd);
+        click(forgetPassowrd);
         return new ForgetPasswordPage(driver);
     }
 
     public StatusCodePage clickon_statusCode_button()
     {
-        clickon(statusCode);
+        click(statusCode);
         return new StatusCodePage(driver);
     }
 
     public CheckboxPage clickon_checkbox_button()
     {
-        clickon(chrckBox);
+        click(chrckBox);
         return new CheckboxPage(driver);
     }
 
     public UploadPage clickon_fileUpload_button()
     {
-        clickon(upload);
+        click(upload);
         return new UploadPage(driver);
     }
 
     public DropdownPage clickonDropdownLink()
     {
-        clickon(dropDownLink);
+        click(dropDownLink);
         return new DropdownPage(driver);
     }
 
     public HoversPage clickonHoversLink()
     {
-        clickon(hoversLink);
+        click(hoversLink);
         return new HoversPage(driver);
     }
 }

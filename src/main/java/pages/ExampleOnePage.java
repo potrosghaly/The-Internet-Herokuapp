@@ -4,15 +4,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.HandelMethods;
 
 import java.time.Duration;
 
-public class ExampleOnePage {
+public class ExampleOnePage extends HandelMethods {
 
-    WebDriver driver;
-    WebDriverWait wait;
+
+
     public ExampleOnePage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
     private final By startButton = By.xpath("//*[@id ='start']/button");
     private final By actualMessage = By.xpath("//*[@id = 'finish']/h4");
@@ -20,13 +21,12 @@ public class ExampleOnePage {
 
     public void clickonStartButton()
     {
-        driver.findElement(startButton).click();
+        click(startButton);
     }
 
     public String getActualMessage()
     {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(actualMessage));
-        return driver.findElement(actualMessage).getText();
+        waitUntilVisibleLocator(actualMessage);
+        return  getText(actualMessage);
     }
 }

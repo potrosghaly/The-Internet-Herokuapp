@@ -16,11 +16,11 @@ public class LoginTest extends BaseTest {
 
 
         @Test
-        public void validlogin()
-        {
+        public void validlogin() throws InterruptedException {
         Loginpage loginpage = homePage.clickon_login_button();
         loginpage.write_username(valid_username);
         loginpage.write_password(valid_password);
+        Thread.sleep(3000);
         SecurePage securePage = loginpage.clickon_login_button();
         String Actual = securePage.actual_message();
         String Expect = "You logged into a secure area!";
