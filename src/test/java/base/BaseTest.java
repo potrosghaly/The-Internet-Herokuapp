@@ -47,6 +47,8 @@ public class BaseTest {
         utilsTests = new UtilsTests(driver);
         utilsTests.takeScreenShot(method);
         ScreenRecorderUtil.stopRecord();
+        utilsTests.setStatus(method , result);
+
     }
 
     @AfterClass
@@ -75,6 +77,17 @@ public class BaseTest {
         }
 
 }
+
+    @BeforeSuite
+    public void beforeSuite(){
+        utilsTests = new UtilsTests(driver);
+        utilsTests.createReport();
+    }
+    @AfterSuite
+    public void afterSuite(){
+        utilsTests = new UtilsTests(driver);
+        utilsTests.flushReport();
+    }
 
 
 }
